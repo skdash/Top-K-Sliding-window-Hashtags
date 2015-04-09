@@ -94,7 +94,7 @@ var binaryHeap = function(comp) {
   that.display = function() {
   	for(i=0;i<arr.length;i++) 
   	{
-  			console.log(arr[i].text,'(', arr[i].value, ')');
+  		console.log(arr[i].text,'(', arr[i].value, ')');
   	}
   	globarr=arr;
   }
@@ -126,10 +126,10 @@ var binaryHeap = function(comp) {
     var pos = 0;
     for(i=0; i<arr.length;i++)
     	{
-    			if(arr[i].text==word.text)
-    			{
-    				return i;
-    			}
+    		if(arr[i].text==word.text)
+    		{
+    			return i;
+  		}
     	}
     	return -1;
   }
@@ -181,7 +181,7 @@ function updatepriorityqueue(word)
                 if(heap.heapsearch(word)!=-1 && head.text!=word.text)             // check if the queue already contains the incoming word 
                     heap.remove(word);                        // and remove that if it's anything but the head of queue
                 else
-                				removedhead=heap.poll();                  // else remove the head from queue
+                    removedhead=heap.poll();                  // else remove the head from queue
 
                 heap.push(word);                              // add the new word to queue
             }
@@ -268,12 +268,12 @@ sio.sockets.on('connection', function(socket){
     console.log('..................................................');
 
     //sort the list of hashtags before sending it to client
-		globarr.sort(function(a,b) {return (a.value > b.value) ? 1 : ((b.value > a.value) ? -1 : 0);} ); 
-		//emit the meaningful data to the web browser client
-		socket.volatile.emit('ss-tweet', {
-										  	list: globarr,
-		});
+	globarr.sort(function(a,b) {return (a.value > b.value) ? 1 : ((b.value > a.value) ? -1 : 0);} ); 
+	//emit the meaningful data to the web browser client
+	socket.volatile.emit('ss-tweet', {
+		  	list: globarr,
 	});
+});
 	
  // on client action 'Submit'
  socket.on('ss-submit', function (data) {
