@@ -1,0 +1,30 @@
+extends layout
+
+block styles
+   link(rel='stylesheet',href='/stylesheets/style.css')
+
+block scripts
+   script(src='/javascripts/jquery.js')
+   script(src='/javascripts/jquery.min.js')
+   script(src='/socket.io/socket.io.js')
+   script(src='/javascripts/client.socket.io.js')
+
+block content
+  form.navbar-form.navbar-left(role='search')
+    .form-group
+        h4 Enter K
+        input.form-control(id="ktext" , type='text', placeholder='5')
+
+        h4 Enter Window Size
+        input.form-control(id="wtext" , type='text', placeholder='20')
+        |   
+        button.btn.btn-default(type='button', onclick='btsubmit()') Submit
+  div(class="container")
+    div(class="row")
+    div(class="row")
+      div(class="col-lg-6")
+        h2(style='color: #006600; background-color: #ffffff') Hashtags
+          ul#hashtags
+      div(class="col-lg-6")
+        h2(style='color: #006600; background-color: #ffffff') Count
+          ul#count

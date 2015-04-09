@@ -1,0 +1,32 @@
+extends layout
+
+// Define basic data fields using Jade’s mixin features
+// Bind to those data fields for dynamic updates
+
+mixin metric(id,title,footer)
+  div(class="panel panel-default",id="#{id}-metric" )
+    if title
+           div.panel-heading: h3.panel-title= title
+    div(class="panel-body metric")
+          h1(id="#{id}")= "TBD"
+    if footer
+          div.panel-footer= footer
+
+block styles
+    // link(rel='stylesheet',href='/stylesheets/dashboard.css')
+
+block scripts
+   // enable socket.io communication on the client-side
+   script(src='/socket.io/socket.io.js')
+   script(src='/javascripts/jquery.js')
+   script(src='/javascripts/jquery.min.js')
+   script(src='/javascripts/client.socket.io.js')
+
+block content
+  div(class="container")
+    div.page-header: h1 Ping Pong
+    div(class="row")
+      div(class="col-lg-3")
+        +metric("ss-message")
+    button(id="submit").
+      Submit

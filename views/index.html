@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--declare the page features-->
+    <title>Top-K Hashtags Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/javascripts/client.socket.io.js"></script>
+  <body>
+    <form role="search" class="navbar-form navbar-left">
+      <div class="form-group">
+        <h4>Enter K</h4>
+        <input id="ktext" type="text" placeholder="5" class="form-control">
+        <h4>Enter Window Size</h4>
+        <input id="wtext" type="text" placeholder="20" class="form-control">  
+        <button type="button" onclick="btsubmit()" class="btn btn-default">Submit</button>
+      </div>
+    </form>
+    <div class="container">
+      <!--first row in container shows the final verdict-->
+      <!--div(class="row")-->
+      <div class="row">
+        <div class="col-lg-6">
+          <h2 style="color: #006600; background-color: #ffffff">Hashtags
+            <ul id="hashtags"></ul>
+          </h2>
+        </div>
+        <div class="col-lg-6">
+          <h2 style="color: #006600; background-color: #ffffff">Count
+            <ul id="count"></ul>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

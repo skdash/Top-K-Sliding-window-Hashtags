@@ -1,0 +1,17 @@
+var server_name = "http://127.0.0.1:3000/";
+var socket = io.connect(server_name);
+var msgElement = document.getElementById('ss-message');
+
+//Sends a PONG response when it receives a PING message
+socket.on('ss-ping', function(data) {
+   socket.emit('ss-pong', {text: 'PONG'});
+   });
+//Outputs the message to the Web console when it gets a PONG response
+socket.on('ss-pong', function(data) {
+      msgElement.innerHTML = data.text;
+      console.log('Client: Received server message: '+data.text);
+   });
+//Emits a PING message to the server when a user clicks a Submit button
+$('#submit').click(function(){
+  socket.emit('ss-ping', {text: 'PING'});
+});
