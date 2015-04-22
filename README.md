@@ -57,3 +57,10 @@ Running the client
 1. Open web-browser (chrome/firefox)
 2. View the initial results on: http://localhost:3000. The initial list of hashtags is based on the values of k=5 and window size=20.
 3. Values of k and window size are dynamically configurable and could be provided as input in the dedicated text area and on clicking 'Submit' results are displayed.
+
+The working is based on the below assumptions:
+1. The number of hashtags (k) to be displayed has a default value of 5.
+2. The window size is based on the number of tweets received. The window slides by 1 upon receiving a tweet beyond the initial window size.
+Example: Default window size is 20. So, the initial list of hashtags is considered from the tweets #1 to #20, followed by tweets #2 to #21 and so on.
+3. The top-k hashtags are loaded onto the browser screen starting from 1 to k. It doesn't wait for the count to become k to be displayed.
+4. While changing the values of wither k or window size on the client side (browser), both the values are assumed to be supplied before clicking 'Submit' button. If a change is desired in only one of the parameters, then either supply the default parameter value or the already existing value in the textbox for the other parameter. Leaving a textbox as blank before clicking 'Submit' will result in a crash of the server.
